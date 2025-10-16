@@ -1,19 +1,67 @@
-import java.util.*;
 
+
+// Question 2
 /*
- * Q.2) Write a program to check if a given integer number is odd or even
+ * Create a base class Shape with methods draw() and erase()
+ * Inherit the same in 3 other classes Circle, Triangle, and Square 
+ * and override draw() and erase() methods to represent each shape.
  */
+
+ class Shape {
+    void draw() {
+        System.out.println("Drawing Shape");
+    }
+    void erase() {
+        System.out.println("Erasing Shape");
+    }
+}
+
+class Circle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing Circle");
+    }
+    @Override
+    void erase() {
+        System.out.println("Erasing Circle");
+    }
+}
+
+class Triangle extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing Triangle");
+    }
+    @Override
+    void erase() {
+        System.out.println("Erasing Triangle");
+    }
+}
+
+class Square extends Shape {
+    @Override
+    void draw() {
+        System.out.println("Drawing Square");
+    }
+    @Override
+    void erase() {
+        System.out.println("Erasing Square");
+    }
+}
+
 public class Solution2 {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter a number: ");
-        int a = sc.nextInt();
+        Shape c = new Circle();
+        Shape t = new Triangle();
+        Shape s = new Square();
 
-        if ((a & 1) == 0) {
-            System.out.println("Even number");
-        } else {
-            System.out.println("Odd number");
-        }
-        sc.close();
+        c.draw();
+        c.erase();
+        
+        t.draw();
+        t.erase();
+
+        s.draw();
+        s.erase();
     }
 }
