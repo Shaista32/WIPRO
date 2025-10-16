@@ -1,67 +1,31 @@
-
-
-// Question 2
 /*
- * Create a base class Shape with methods draw() and erase()
- * Inherit the same in 3 other classes Circle, Triangle, and Square 
- * and override draw() and erase() methods to represent each shape.
+ * Write a program to copy contents from one file to another and check the output 
+ * Sample Input and Output : 
+ * Enter the input file name 
+ * Input.txt
+ * Enter the output file name 
+ * Output.txt
+ * File is copied
  */
 
- class Shape {
-    void draw() {
-        System.out.println("Drawing Shape");
-    }
-    void erase() {
-        System.out.println("Erasing Shape");
-    }
-}
-
-class Circle extends Shape {
-    @Override
-    void draw() {
-        System.out.println("Drawing Circle");
-    }
-    @Override
-    void erase() {
-        System.out.println("Erasing Circle");
-    }
-}
-
-class Triangle extends Shape {
-    @Override
-    void draw() {
-        System.out.println("Drawing Triangle");
-    }
-    @Override
-    void erase() {
-        System.out.println("Erasing Triangle");
-    }
-}
-
-class Square extends Shape {
-    @Override
-    void draw() {
-        System.out.println("Drawing Square");
-    }
-    @Override
-    void erase() {
-        System.out.println("Erasing Square");
-    }
-}
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Solution2 {
     public static void main(String[] args) {
-        Shape c = new Circle();
-        Shape t = new Triangle();
-        Shape s = new Square();
-
-        c.draw();
-        c.erase();
-        
-        t.draw();
-        t.erase();
-
-        s.draw();
-        s.erase();
+        try {
+            FileReader reader = new FileReader("Input.txt");
+            FileWriter writer = new FileWriter("Output.txt");
+            int charRead;
+            while ((charRead = reader.read()) != -1) {
+                writer.write(charRead);
+            }
+            reader.close();
+            writer.close();
+            System.out.println("File is copied");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
